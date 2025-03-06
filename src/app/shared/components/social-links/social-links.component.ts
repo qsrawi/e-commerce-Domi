@@ -13,7 +13,8 @@ export type SocialLinksShape = 'circle' | 'rounded';
 @Component({
     selector: 'app-social-links',
     templateUrl: './social-links.component.html',
-    styleUrls: ['./social-links.component.scss']
+    styleUrls: ['./social-links.component.scss'],
+    standalone: true
 })
 export class SocialLinksComponent {
     // theme = theme;

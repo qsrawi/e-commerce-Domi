@@ -1,5 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Newsletterecommerce, newsletterecommerceinit } from 'src/app/shared/Models/newsletterecommerce';
 import { StoreService } from 'src/app/shared/services/store.service';
@@ -7,7 +8,9 @@ import { StoreService } from 'src/app/shared/services/store.service';
 @Component({
   selector: 'app-newsletter-menu',
   templateUrl: './newsletter-menu.component.html',
-  styleUrls: ['./newsletter-menu.component.scss']
+  styleUrls: ['./newsletter-menu.component.scss'],
+  standalone: true,
+  imports:[CommonModule, FormsModule, ReactiveFormsModule]
 })
 export class NewsletterMenuComponent implements OnInit {
   @Output() closeMenu: EventEmitter<void> = new EventEmitter<void>();

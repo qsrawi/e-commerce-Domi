@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/shared/api/auth.service';
 import { Newsletterecommerce, newsletterecommerceinit } from 'src/app/shared/Models/newsletterecommerce';
@@ -7,6 +7,12 @@ import { CurrencyService } from 'src/app/shared/services/currency.service';
 import { MobileMenuService } from 'src/app/shared/services/mobile-menu.service';
 import { StoreService } from 'src/app/shared/services/store.service';
 import { MobileMenuItem } from '../../../../shared/interfaces/mobile-menu-item';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { IconComponent } from 'src/app/shared/components/icon/icon.component';
+import { RouterLink } from '@angular/router';
+import { CollapseItemDirective } from 'src/app/shared/directives/collapse.directive';
+
 interface Currency {
     name: string;
     url: string;
@@ -19,7 +25,9 @@ interface Currency {
 @Component({
     selector: 'app-mobile-links',
     templateUrl: './mobile-links.component.html',
-    styleUrls: ['./mobile-links.component.scss']
+    styleUrls: ['./mobile-links.component.scss'],
+    standalone: true,
+    imports:[CommonModule, FormsModule, IconComponent, RouterLink, ReactiveFormsModule, CollapseItemDirective]
 })
 export class MobileLinksComponent {
     @Input() links: MobileMenuItem[] = [];

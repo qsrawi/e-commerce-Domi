@@ -2,16 +2,14 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { MobileMenuService } from '../../../../shared/services/mobile-menu.service';
-import { mobileMenu } from '../../../../../data/mobile-menu';
 import { MobileMenuItem } from '../../../../shared/interfaces/mobile-menu-item';
 import { SliderService } from 'src/app/shared/api/slider.service';
-import { NestedLink } from 'src/app/shared/interfaces/nested-link';
-import { MegamenuColumn } from 'src/app/shared/interfaces/megamenu-column';
-import { NavigationLink } from 'src/app/shared/interfaces/navigation-link';
 import { CurrencyService } from 'src/app/shared/services/currency.service';
 import CurrencyModel from 'src/app/shared/Models/Currency';
 import { ThisReceiver } from '@angular/compiler';
 import { AuthService } from 'src/app/shared/api/auth.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 interface Currency {
     name: string;
@@ -27,7 +25,8 @@ interface Currency {
     selector: 'app-mobile-menu',
     templateUrl: './mobile-menu.component.html',
     styleUrls: ['./mobile-menu.component.scss'],
-    standalone: true
+    standalone: true,
+    imports:[CommonModule, FormsModule]
 })
 
 export class MobileMenuComponent implements OnDestroy, OnInit {

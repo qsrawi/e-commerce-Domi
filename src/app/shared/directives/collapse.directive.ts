@@ -38,7 +38,8 @@ export class CollapseContentDirective implements OnInit, OnDestroy {
 
 @Directive({
     selector: '[appCollapseItem]',
-    exportAs: 'appCollapseItem'
+    exportAs: 'appCollapseItem',
+    standalone: true
 })
 export class CollapseItemDirective {
     @Input() appCollapseItem = '';

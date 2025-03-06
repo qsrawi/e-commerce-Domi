@@ -14,7 +14,15 @@ import { WishlistItemService } from 'src/app/shared/services/wishlist-item.servi
 import { CompareService } from 'src/app/shared/services/compare.service';
 import { HeaderService } from 'src/app/shared/services/header.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import Coupons from 'src/app/shared/Models/Coupons';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { IndicatorComponent } from '../indicator/indicator.component';
+import { AccountMenuComponent } from '../account-menu/account-menu.component';
+import { NewsletterMenuComponent } from '../newsletter-menu/newsletter-menu.component';
+import { ItemdropcartComponent } from '../itemdropcart/itemdropcart.component';
+import { SearchComponent } from 'src/app/shared/components/search/search.component';
+import { IconComponent } from 'src/app/shared/components/icon/icon.component';
+import { DropdownDirective } from 'src/app/shared/directives/dropdown.directive';
 
 interface Currency {
     name: string;
@@ -38,7 +46,9 @@ interface Currency {
                 animate(10000, style({ right: '100%' }))
             ])
         ])
-    ]
+    ],
+    standalone:true,
+    imports:[CommonModule, FormsModule, IndicatorComponent, AccountMenuComponent, NewsletterMenuComponent, ItemdropcartComponent, SearchComponent, IconComponent, DropdownDirective]
 })
 export class TopbarComponent {
     @Input() search = true;

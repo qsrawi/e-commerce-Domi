@@ -4,7 +4,8 @@ import { Link } from '../../../../shared/interfaces/link';
 @Component({
     selector: 'app-footer-links',
     templateUrl: './links.component.html',
-    styleUrls: ['./links.component.scss']
+    styleUrls: ['./links.component.scss'],
+    standalone: true
 })
 export class LinksComponent {
     @Input() header = '';

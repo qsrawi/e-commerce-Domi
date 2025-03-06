@@ -8,10 +8,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 
 // modules
-import { BlocksModule } from '../blocks/blocks.module';
 import { SharedModule } from '../../shared/shared.module';
 import { ShopRoutingModule } from './shop-routing.module';
-import { WidgetsModule } from '../widgets/widgets.module';
 
 // components
 import { ProductsViewComponent } from './components/products-view/products-view.component';
@@ -60,14 +58,14 @@ import { NgxPayPalModule } from 'ngx-paypal';
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
-        // modules (third-party)
+        // // modules (third-party)
         CarouselModule,
-        // modules
-        BlocksModule,
+        // // modules
+        // BlocksModule,
         SharedModule,
-        ShopRoutingModule,
-        WidgetsModule,
-        NgxPayPalModule,
+        // ShopRoutingModule,
+        // WidgetsModule,
+        // NgxPayPalModule,
 
     ]
 })

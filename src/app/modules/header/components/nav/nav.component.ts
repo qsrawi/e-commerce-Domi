@@ -6,19 +6,24 @@ import { fromEvent, merge, Observable, Subject } from 'rxjs';
 import { filter, first, shareReplay, takeUntil } from 'rxjs/operators';
 import { fromMatchMedia } from '../../../../shared/functions/rxjs/fromMatchMedia';
 import { isPlatformBrowser } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { DropcartType } from '../dropcart/dropcart.component';
 import { OffcanvasCartService } from '../../../../shared/services/offcanvas-cart.service';
 import { CartItemService } from 'src/app/shared/services/cart-item.service';
 import { WishlistItemService } from 'src/app/shared/services/wishlist-item.service';
 import { CompareService } from 'src/app/shared/services/compare.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { LinksComponent } from '../links/links.component';
 
 export type NavStickyMode = 'alwaysOnTop' | 'pullToShow';
 
 @Component({
     selector: 'app-header-nav',
     templateUrl: './nav.component.html',
-    styleUrls: ['./nav.component.scss']
+    styleUrls: ['./nav.component.scss'],
+    standalone: true,
+    imports:[CommonModule, FormsModule, LinksComponent, RouterLink]
 })
 export class NavComponent implements OnInit, OnDestroy, AfterViewInit {
     @Input() departments = true;

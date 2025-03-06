@@ -1,18 +1,23 @@
 import { Component, Input,EventEmitter, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CartItemNew, CartItemService } from 'src/app/shared/services/cart-item.service';
 import { OffcanvasCartService } from 'src/app/shared/services/offcanvas-cart.service';
 import { RootService } from 'src/app/shared/services/root.service';
 import { StoreService } from 'src/app/shared/services/store.service';
-
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { IconComponent } from 'src/app/shared/components/icon/icon.component';
+import { SharedModule } from "../../../../shared/shared.module";
 
 export type DropcartType = 'dropdown' | 'offcanvas';
 
 @Component({
   selector: 'app-itemdropcart',
   templateUrl: './itemdropcart.component.html',
-  styleUrls: ['./itemdropcart.component.scss']
+  styleUrls: ['./itemdropcart.component.scss'],
+  standalone: true,
+  imports: [CommonModule, FormsModule, IconComponent, RouterLink, SharedModule]
 })
 export class ItemdropcartComponent{
 

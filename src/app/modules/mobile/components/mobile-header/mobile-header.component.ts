@@ -9,12 +9,17 @@ import { filter, first, shareReplay, takeUntil } from 'rxjs/operators';
 import { RootService } from '../../../../shared/services/root.service';
 import { CompareService } from 'src/app/shared/services/compare.service';
 import { Newsletterecommerce, newsletterecommerceinit } from 'src/app/shared/Models/newsletterecommerce';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { StoreService } from 'src/app/shared/services/store.service';
 import { ToastrService } from 'ngx-toastr';
 import { CartItemService } from 'src/app/shared/services/cart-item.service';
 import { WishlistItemService } from 'src/app/shared/services/wishlist-item.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { IconComponent } from 'src/app/shared/components/icon/icon.component';
+import { SearchComponent } from 'src/app/shared/components/search/search.component';
+import { DropdownDirective } from 'src/app/shared/directives/dropdown.directive';
 
 export type MobileHeaderMode = 'alwaysOnTop' | 'pullToShow';
 
@@ -26,7 +31,8 @@ export type MobileHeaderVisibility = 'hidden' | 'shown';
     selector: 'app-mobile-header',
     templateUrl: './mobile-header.component.html',
     styleUrls: ['./mobile-header.component.scss'],
-    standalone: true
+    standalone: true,
+    imports:[CommonModule, FormsModule, IconComponent, RouterLink, SearchComponent, DropdownDirective, ReactiveFormsModule]
 })
 export class MobileHeaderComponent implements OnDestroy, AfterViewInit {
     @Input() stickyMode: MobileHeaderMode | false = false;

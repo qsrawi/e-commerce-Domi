@@ -34,6 +34,7 @@ export type CategoryWithDepth = Category & { depth: number };
     templateUrl: './search.component.html',
     styleUrls: ['./search.component.scss'],
     exportAs: 'search',
+    standalone: true
 })
 export class SearchComponent implements OnChanges, OnInit, OnDestroy {
     private destroy$: Subject<void> = new Subject<void>();

@@ -11,11 +11,17 @@ import {
 } from '@angular/core';
 import { NestedLink } from '../../../../shared/interfaces/nested-link';
 import { DirectionService } from '../../../../shared/services/direction.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { IconComponent } from 'src/app/shared/components/icon/icon.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-header-menu',
     templateUrl: './menu.component.html',
-    styleUrls: ['./menu.component.scss']
+    styleUrls: ['./menu.component.scss'],
+    standalone: true,
+    imports:[CommonModule, FormsModule, IconComponent, RouterLink]
 })
 export class MenuComponent implements AfterViewChecked {
     @Input() layout: 'classic'|'topbar' = 'classic';

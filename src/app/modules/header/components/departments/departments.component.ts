@@ -16,11 +16,19 @@ import { isPlatformBrowser } from '@angular/common';
 import { HeaderService } from '../../../../shared/services/header.service';
 import { fromMatchMedia } from '../../../../shared/functions/rxjs/fromMatchMedia';
 import { fromOutsideTouchClick } from '../../../../shared/functions/rxjs/fromOutsideTouchClick';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { MegamenuComponent } from '../megamenu/megamenu.component';
+import { MenuComponent } from '../menu/menu.component';
+import { IconComponent } from 'src/app/shared/components/icon/icon.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-header-departments',
     templateUrl: './departments.component.html',
-    styleUrls: ['./departments.component.scss']
+    styleUrls: ['./departments.component.scss'],
+    standalone: true,
+    imports:[CommonModule, FormsModule, MegamenuComponent, MenuComponent, IconComponent, RouterLink]
 })
 export class DepartmentsComponent implements OnInit, OnDestroy, AfterViewInit, AfterViewChecked {
     private destroy$: Subject<any> = new Subject();

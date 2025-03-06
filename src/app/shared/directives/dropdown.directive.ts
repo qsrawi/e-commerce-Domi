@@ -5,7 +5,8 @@ import { takeUntil } from 'rxjs/operators';
 
 @Directive({
     selector: '[appDropdown]',
-    exportAs: 'appDropdown'
+    exportAs: 'appDropdown', 
+    standalone: true
 })
 export class DropdownDirective implements OnDestroy {
     private destroy$: Subject<any> = new Subject();

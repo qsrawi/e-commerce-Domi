@@ -9,11 +9,19 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { SliderService } from 'src/app/shared/api/slider.service';
 import { MegamenuColumn } from 'src/app/shared/interfaces/megamenu-column';
 import { NestedLink } from 'src/app/shared/interfaces/nested-link';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { IconComponent } from 'src/app/shared/components/icon/icon.component';
+import { MenuComponent } from '../menu/menu.component';
+import { RouterLink } from '@angular/router';
+import { MegamenuComponent } from '../megamenu/megamenu.component';
 
 @Component({
     selector: 'app-header-links',
     templateUrl: './links.component.html',
-    styleUrls: ['./links.component.scss']
+    styleUrls: ['./links.component.scss'],
+    standalone: true,
+    imports:[CommonModule, FormsModule, IconComponent, MenuComponent, RouterLink, MegamenuComponent]
 })
 export class LinksComponent implements OnInit, OnDestroy, AfterViewChecked {
     @ViewChildren('submenuElement') submenuElements!: QueryList<ElementRef>;

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/shared/api/auth.service';
 import { CartItemService } from 'src/app/shared/services/cart-item.service';
@@ -7,11 +7,17 @@ import { CartService } from 'src/app/shared/services/cart.service';
 import { CompareService } from 'src/app/shared/services/compare.service';
 import { RootService } from 'src/app/shared/services/root.service';
 import { WishlistItemService } from 'src/app/shared/services/wishlist-item.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-account-menu',
   templateUrl: './account-menu.component.html',
-  styleUrls: ['./account-menu.component.scss']
+  styleUrls: ['./account-menu.component.scss'],
+  standalone: true,
+  imports:[CommonModule, FormsModule, ReactiveFormsModule, RouterLink]
+
 })
 export class AccountMenuComponent implements OnInit {
   @Output() closeMenu: EventEmitter<void> = new EventEmitter<void>();

@@ -6,7 +6,8 @@ import { isPlatformBrowser } from '@angular/common';
 @Component({
     selector: 'app-totop',
     templateUrl: './totop.component.html',
-    styleUrls: ['./totop.component.scss']
+    styleUrls: ['./totop.component.scss'],
+    standalone: true
 })
 export class TotopComponent implements OnInit, OnDestroy {
     private destroy$: Subject<void> = new Subject<void>();

@@ -17,6 +17,10 @@ import { fromEvent, merge, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { HeaderService } from '../../../../shared/services/header.service';
 import { fromOutsideTouchClick } from '../../../../shared/functions/rxjs/fromOutsideTouchClick';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { IconComponent } from 'src/app/shared/components/icon/icon.component';
+import { RouterLink } from '@angular/router';
 
 export type IndicatorTrigger = 'hover' | 'click' | false;
 
@@ -24,6 +28,8 @@ export type IndicatorTrigger = 'hover' | 'click' | false;
     selector: 'app-indicator',
     templateUrl: './indicator.component.html',
     styleUrls: ['./indicator.component.scss'],
+    standalone: true,
+    imports:[CommonModule, FormsModule, IconComponent, RouterLink],
     exportAs: 'appIndicator',
 })
 export class IndicatorComponent implements OnInit, OnDestroy, AfterViewInit {
