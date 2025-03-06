@@ -13,13 +13,18 @@ import { CartItemService } from '../../services/cart-item.service';
 import { WishlistItemService } from '../../services/wishlist-item.service';
 import { RecentlyViewedService } from '../../services/recently-viewed.service';
 import { ToastrService } from 'ngx-toastr';
+import { CommonModule } from '@angular/common';
+import { IconComponent } from '../icon/icon.component';
+import { SharedModule } from "../../shared.module";
+import { RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-item-card',
     templateUrl: './item-card.component.html',
     styleUrls: ['./item-card.component.scss'],
+    standalone: true,
+    imports: [CommonModule, IconComponent, SharedModule, RouterLink],
     changeDetection: ChangeDetectionStrategy.OnPush
-
 })
 export class ItemCardComponent implements OnInit, OnDestroy, OnChanges {
 

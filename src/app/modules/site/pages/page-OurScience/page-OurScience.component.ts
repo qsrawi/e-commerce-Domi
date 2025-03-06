@@ -1,15 +1,18 @@
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ShopService } from 'src/app/shared/api/shop.service';
+import { PageHeaderComponent } from 'src/app/shared/components/page-header/page-header.component';
 import { initMessageModal, MessageModal } from 'src/app/shared/Models/Message';
 import { StoreService } from 'src/app/shared/services/store.service';
 
 @Component({
     selector: 'app-OurScience',
     templateUrl: './page-OurScience.component.html',
-    styleUrls: ['./page-OurScience.component.scss']
+    styleUrls: ['./page-OurScience.component.scss'],
+    standalone: true,
+    imports:[PageHeaderComponent, CommonModule]
 })
 export class PageOurScienceComponent {
     basictemrs: string = '';

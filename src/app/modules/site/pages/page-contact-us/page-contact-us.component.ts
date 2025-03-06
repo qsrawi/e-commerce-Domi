@@ -1,14 +1,19 @@
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { BlockMapComponent } from 'src/app/modules/blocks/block-map/block-map.component';
+import { PageHeaderComponent } from 'src/app/shared/components/page-header/page-header.component';
 import { initMessageModal, MessageModal } from 'src/app/shared/Models/Message';
 import { StoreService } from 'src/app/shared/services/store.service';
 
 @Component({
     selector: 'app-contact-us',
     templateUrl: './page-contact-us.component.html',
-    styleUrls: ['./page-contact-us.component.scss']
+    styleUrls: ['./page-contact-us.component.scss'],
+    standalone: true,
+    imports: [CommonModule, FormsModule, BlockMapComponent, PageHeaderComponent]
 })
 export class PageContactUsComponent {
     basictemrs:string='';

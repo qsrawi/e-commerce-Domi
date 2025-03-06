@@ -9,7 +9,8 @@ import { filter, map, take, takeUntil } from 'rxjs/operators';
  * a mouseup event occurs on it, which prevents clicking.
  */
 @Directive({
-    selector: '[appOwlPreventClick]'
+    selector: '[appOwlPreventClick]',
+    standalone: true
 })
 export class OwlPreventClickDirective implements OnInit {
     private get element(): HTMLElement {

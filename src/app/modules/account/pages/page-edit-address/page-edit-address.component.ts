@@ -1,4 +1,3 @@
-import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { UntypedFormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router, RouterEvent } from '@angular/router';
@@ -9,11 +8,15 @@ import { AddressService } from 'src/app/shared/api/address.service';
 import { Address } from 'src/app/shared/interfaces/address';
 import { RootService } from 'src/app/shared/services/root.service';
 import { singleaddresses } from 'src/data/account-addresses';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-page-edit-address',
     templateUrl: './page-edit-address.component.html',
-    styleUrls: ['./page-edit-address.component.scss']
+    styleUrls: ['./page-edit-address.component.scss'],
+    standalone: true,
+    imports:[CommonModule, FormsModule]
 })
 export class PageEditAddressComponent implements OnInit, OnDestroy {
     addresses: Address=singleaddresses;

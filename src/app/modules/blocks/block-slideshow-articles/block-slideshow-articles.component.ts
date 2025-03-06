@@ -3,11 +3,17 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { SliderService } from 'src/app/shared/api/slider.service';
 import { DirectionService } from '../../../shared/services/direction.service';
 import { ShopService } from 'src/app/shared/api/shop.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { OwlPreventClickDirective } from 'src/app/shared/directives/owl-prevent-click.directive';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @Component({
     selector: 'app-block-slideshow-articles',
     templateUrl: './block-slideshow-articles.component.html',
-    styleUrls: ['./block-slideshow-articles.component.scss']
+    styleUrls: ['./block-slideshow-articles.component.scss'],
+    standalone: true,
+    imports:[CommonModule, FormsModule, OwlPreventClickDirective, CarouselModule]
 })
 
 export class BlockSlideshowArticlesComponent {

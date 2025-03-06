@@ -1,7 +1,7 @@
-import { Component, Inject, Input, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Component, importProvidersFrom, Inject, Input, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { DirectionService } from '../../../shared/services/direction.service';
-import { AbstractControl, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
+import { AbstractControl, FormsModule, ReactiveFormsModule, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import {
     ColorFilter,
     ColorFilterItem,
@@ -15,6 +15,10 @@ import { RootService } from '../../../shared/services/root.service';
 import { EMPTY, merge, of, Subject } from 'rxjs';
 import { PageCategoryService } from '../../shop/services/page-category.service';
 import { distinctUntilChanged, map, skip, takeUntil } from 'rxjs/operators';
+import { RouterLink } from '@angular/router';
+import { IconComponent } from 'src/app/shared/components/icon/icon.component';
+import { SharedModule } from "../../../shared/shared.module";
+import { NgxSliderModule } from 'ngx-slider-v2';
 
 interface FormFilterValues {
     [filterSlug: string]: [number, number] | { [itemSlug: string]: boolean } | string;
@@ -23,7 +27,9 @@ interface FormFilterValues {
 @Component({
     selector: 'app-widget-filters',
     templateUrl: './widget-filters.component.html',
-    styleUrls: ['./widget-filters.component.scss']
+    styleUrls: ['./widget-filters.component.scss'],
+    standalone: true,
+    imports: [IconComponent, CommonModule, FormsModule, RouterLink, ReactiveFormsModule, SharedModule, NgxSliderModule]
 })
 export class WidgetFiltersComponent implements OnInit, OnDestroy {
     @Input() offcanvas: 'always' | 'mobile' = 'mobile';
@@ -34,7 +40,14 @@ export class WidgetFiltersComponent implements OnInit, OnDestroy {
     filtersForm!: UntypedFormGroup;
     isPlatformBrowser = isPlatformBrowser(this.platformId);
     rightToLeft = false;
-
+    sliderOptions = {
+        animate: false,
+        mouseEventsInterval: 10,
+        rightToLeft: true, // or false
+        floor: 0, // Default minimum value
+        ceil: 100, // Default maximum value
+        step: 1
+    };
     constructor(
         @Inject(PLATFORM_ID) private platformId: any,
         private direction: DirectionService,
@@ -194,6 +207,14 @@ export class WidgetFiltersComponent implements OnInit, OnDestroy {
         });
 
         return filterValues;
+    }
+
+    updateSliderOptions(filter: any) {
+        this.sliderOptions = {
+          ...this.sliderOptions,
+          floor: filter.min,
+          ceil: filter.max
+        };
     }
 
     reset(): void {

@@ -1,19 +1,23 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
-import { AbstractControl, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { AbstractControl, ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthService, SocialUser } from 'angularx-social-login';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { catchError, map } from 'rxjs/operators';
 import { AuthService } from 'src/app/shared/api/auth.service';
 import { RootService } from 'src/app/shared/services/root.service';
 import { PrefixNot } from '@angular/compiler';
-
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { PageHeaderComponent } from 'src/app/shared/components/page-header/page-header.component';
 
 @Component({
     selector: 'app-login',
     templateUrl: './page-login.component.html',
-    styleUrls: ['./page-login.component.scss']
+    styleUrls: ['./page-login.component.scss'],
+    standalone: true,
+    imports:[PageHeaderComponent, CommonModule, FormsModule, ReactiveFormsModule, RouterLink]
 })
 export class PageLoginComponent implements OnInit {
   @Input() tab: 'Login' | 'Register' = 'Login';

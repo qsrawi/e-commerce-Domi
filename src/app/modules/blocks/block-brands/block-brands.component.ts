@@ -2,12 +2,18 @@ import { AfterViewInit, Component, ElementRef, Inject, Input, PLATFORM_ID, ViewC
 import { DirectionService } from '../../../shared/services/direction.service';
 import { RootService } from '../../../shared/services/root.service';
 import { Brand } from '../../../shared/interfaces/brand';
-import { isPlatformBrowser } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { OwlPreventClickDirective } from '../../../shared/directives/owl-prevent-click.directive'
+import { CarouselComponent, CarouselModule } from 'ngx-owl-carousel-o';
+import { RouterLink } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-block-brands',
     templateUrl: './block-brands.component.html',
-    styleUrls: ['./block-brands.component.scss']
+    styleUrls: ['./block-brands.component.scss'],
+    standalone: true,
+    imports:[CommonModule, FormsModule, OwlPreventClickDirective, RouterLink, CarouselModule]
 })
 export class BlockBrandsComponent implements AfterViewInit {
     @Input() brands: Brand[] = [];

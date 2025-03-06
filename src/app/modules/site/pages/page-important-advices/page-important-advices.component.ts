@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PageHeaderComponent } from 'src/app/shared/components/page-header/page-header.component';
 import { CustomerServices, CustomerServicesinit } from 'src/app/shared/Models/CustomerServices';
 import { DirectionService } from 'src/app/shared/services/direction.service';
 import { StoreService } from 'src/app/shared/services/store.service';
@@ -6,7 +7,9 @@ import { StoreService } from 'src/app/shared/services/store.service';
 @Component({
   selector: 'app-page-important-advices',
   templateUrl: './page-important-advices.component.html',
-  styleUrls: ['./page-important-advices.component.scss']
+  styleUrls: ['./page-important-advices.component.scss'],
+  standalone: true,
+  imports: [PageHeaderComponent]
 })
 export class PageImportantAdvicesComponent implements OnInit {
 

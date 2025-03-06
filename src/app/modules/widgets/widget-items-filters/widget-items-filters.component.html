@@ -58,14 +58,11 @@
                         <div *ngIf="filter.type === 'range' && isPlatformBrowser" class="filter-price">
                             <div class="filter-price__slider">
                                 <div class="ngx-slider-custom">
-                                    <ngx-slider [formControl]="getRangeControl(filter)" [options]="{
-                                            animate: false,
-                                            mouseEventsInterval: 10,
-                                            rightToLeft: rightToLeft,
-                                            floor: filter.min,
-                                            ceil: filter.max,
-                                            step: 1
-                                        }" #slider></ngx-slider>
+                                    <ngx-slider
+                                        [formControl]="getRangeControl(filter)"
+                                        [options]="sliderOptions"
+                                        #slider
+                                    ></ngx-slider>
                                 </div>
                             </div>
                             <div class="filter-price__title">

@@ -4,18 +4,22 @@ import { orders } from '../../../../../data/account-orders';
 import { CurrencyService } from 'src/app/shared/services/currency.service';
 import { ToastrService } from 'ngx-toastr';
 import { AddressService } from 'src/app/shared/api/address.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CartItemService } from 'src/app/shared/services/cart-item.service';
 import { RootService } from 'src/app/shared/services/root.service';
 import OrderModel from 'src/app/shared/Models/Order';
 import Item from 'src/app/shared/Models/Item';
 import { order } from 'src/data/account-order-details';
-import { escapeRegExp } from '@angular/compiler/src/util';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { SharedModule } from "../../../../shared/shared.module";
 
 @Component({
     selector: 'app-page-orders-list',
     templateUrl: './page-orders-list.component.html',
-    styleUrls: ['./page-orders-list.component.sass']
+    styleUrls: ['./page-orders-list.component.sass'],
+    standalone: true,
+    imports: [CommonModule, FormsModule, RouterLink, SharedModule]
 })
 export class PageOrdersListComponent {
     // orders: Partial<Order>[] = orders;

@@ -14,10 +14,19 @@ import { BlockHeaderGroup } from '../../../shared/interfaces/block-header-group'
 import { DirectionService } from '../../../shared/services/direction.service';
 import { isPlatformBrowser } from '@angular/common';
 import Item from 'src/app/shared/Models/Item';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { OwlPreventClickDirective } from 'src/app/shared/directives/owl-prevent-click.directive';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+
 @Component({
   selector: 'app-block-items',
   templateUrl: './block-items.component.html',
-  styleUrls: ['./block-items.component.scss']
+  styleUrls: ['./block-items.component.scss'],
+  standalone: true,
+  imports:[CommonModule, FormsModule, CarouselModule, OwlPreventClickDirective]
+  
+
 })
 export class BlockItemsComponent implements OnChanges, AfterViewInit {
   @Input() header = '';

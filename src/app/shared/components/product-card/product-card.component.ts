@@ -13,6 +13,7 @@ import { Subject } from 'rxjs';
     selector: 'app-product-card',
     templateUrl: './product-card.component.html',
     styleUrls: ['./product-card.component.scss'],
+    standalone: true,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductCardComponent implements OnInit, OnDestroy, OnChanges {

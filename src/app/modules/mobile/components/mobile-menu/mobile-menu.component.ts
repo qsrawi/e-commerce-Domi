@@ -26,7 +26,8 @@ interface Currency {
 @Component({
     selector: 'app-mobile-menu',
     templateUrl: './mobile-menu.component.html',
-    styleUrls: ['./mobile-menu.component.scss']
+    styleUrls: ['./mobile-menu.component.scss'],
+    standalone: true
 })
 
 export class MobileMenuComponent implements OnDestroy, OnInit {

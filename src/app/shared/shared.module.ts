@@ -9,7 +9,6 @@ import { RouterModule } from '@angular/router';
 // modules (third-party)
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { RedZoomModule } from 'ngx-red-zoom';
 
 // directives
 import { ClickDirective } from './directives/click.directive';
@@ -61,11 +60,8 @@ import { ItemGalleryComponent } from './components/item-gallery/item-gallery.com
         OwlPreventClickDirective,
         TouchClickDirective,
         // components
-        AlertComponent,
-        IconComponent,
         InputNumberComponent,
         LoadingBarComponent,
-        PageHeaderComponent,
         PaginationComponent,
         PostCardComponent,
         ProductCardComponent,
@@ -80,7 +76,6 @@ import { ItemGalleryComponent } from './components/item-gallery/item-gallery.com
         ColorTypePipe,
         CurrencyFormatPipe,
         ProductGalleryComponent,
-        ItemCardComponent,
         QuickviewItemComponent,
         ItemComponent,
         ItemGalleryComponent,
@@ -98,11 +93,8 @@ import { ItemGalleryComponent } from './components/item-gallery/item-gallery.com
         OwlPreventClickDirective,
         TouchClickDirective,
         // components
-        AlertComponent,
-        IconComponent,
         InputNumberComponent,
         LoadingBarComponent,
-        PageHeaderComponent,
         PaginationComponent,
         PostCardComponent,
         ProductCardComponent,
@@ -113,7 +105,6 @@ import { ItemGalleryComponent } from './components/item-gallery/item-gallery.com
         RatingComponent,
         SearchComponent,
         SocialLinksComponent,
-        ItemCardComponent,
         // pipes
         AbsoluteUrlPipe,
         ColorTypePipe,
@@ -126,7 +117,8 @@ import { ItemGalleryComponent } from './components/item-gallery/item-gallery.com
         ReactiveFormsModule,
         RouterModule,
         // modules (third-party)
-        CarouselModule,
+        // CarouselModule,
         ModalModule.forRoot(),
-        RedZoomModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
+        // RedZoomModule
+    ], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class SharedModule { }

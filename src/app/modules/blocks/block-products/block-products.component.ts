@@ -1,9 +1,15 @@
 import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { BlockHeaderComponent } from '../components/block-header/block-header.component';
+import { ProductCardComponent } from 'src/app/shared/components/product-card/product-card.component';
 
 @Component({
     selector: 'app-block-products',
     templateUrl: './block-products.component.html',
-    styleUrls: ['./block-products.component.scss']
+    styleUrls: ['./block-products.component.scss'],
+    standalone: true,
+    imports:[CommonModule, FormsModule, BlockHeaderComponent, ProductCardComponent]
 })
 export class BlockProductsComponent {
     @Input() header = '';

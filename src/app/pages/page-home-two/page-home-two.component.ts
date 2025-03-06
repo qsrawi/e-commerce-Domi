@@ -14,6 +14,10 @@ import Campaign from 'src/app/shared/Models/campaign';
 import { Router } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 import { SliderService } from 'src/app/shared/api/slider.service';
+import { IconComponent } from 'src/app/shared/components/icon/icon.component';
+import { ItemCardComponent } from 'src/app/shared/components/item-card/item-card.component';
+import { BlockSlideshowComponent } from 'src/app/modules/blocks/block-slideshow/block-slideshow.component';
+import { CommonModule } from '@angular/common';
 
 interface ProductsCarouselGroup extends BlockHeaderGroup {
     products$: Observable<Product[]>;
@@ -37,7 +41,14 @@ interface ItemsCarouselData {
 @Component({
     selector: 'app-page-home-two',
     templateUrl: './page-home-two.component.html',
-    styleUrls: ['./page-home-two.component.scss']
+    styleUrls: ['./page-home-two.component.scss'],
+    standalone: true,
+    imports: [
+        IconComponent,
+        ItemCardComponent,
+        BlockSlideshowComponent,
+        CommonModule
+    ]
 })
 export class PageHomeTwoComponent implements OnInit, OnDestroy {
     layout: Layout = 'grid';

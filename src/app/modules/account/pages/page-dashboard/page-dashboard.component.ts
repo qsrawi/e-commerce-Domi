@@ -7,11 +7,16 @@ import { ToastrService } from 'ngx-toastr';
 import { AddressService } from 'src/app/shared/api/address.service';
 import { Subject } from 'rxjs';
 import OrderModel from 'src/app/shared/Models/Order';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-page-dashboard',
     templateUrl: './page-dashboard.component.html',
-    styleUrls: ['./page-dashboard.component.sass']
+    styleUrls: ['./page-dashboard.component.sass'],
+    standalone: true,
+    imports:[CommonModule, FormsModule]
+
 })
 export class PageDashboardComponent implements OnInit, OnDestroy {
     address: Address = singleaddresses;

@@ -3,7 +3,8 @@ import { Component, EventEmitter, HostBinding, Input, Output } from '@angular/co
 @Component({
     selector: 'app-alert',
     templateUrl: './alert.component.html',
-    styleUrls: ['./alert.component.scss']
+    styleUrls: ['./alert.component.scss'],
+    standalone: true
 })
 export class AlertComponent {
     @Input() size: 'lg'|null = null;

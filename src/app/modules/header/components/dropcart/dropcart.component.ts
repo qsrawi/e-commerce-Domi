@@ -9,7 +9,8 @@ export type DropcartType = 'dropdown' | 'offcanvas';
 @Component({
     selector: 'app-header-dropcart',
     templateUrl: './dropcart.component.html',
-    styleUrls: ['./dropcart.component.scss']
+    styleUrls: ['./dropcart.component.scss'],
+    standalone: true
 })
 export class DropcartComponent {
     removedItems: CartItem[] = [];

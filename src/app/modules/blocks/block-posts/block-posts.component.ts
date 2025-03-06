@@ -1,11 +1,19 @@
 import { AfterViewInit, Component, ElementRef, Inject, Input, PLATFORM_ID, ViewChild } from '@angular/core';
 import { DirectionService } from '../../../shared/services/direction.service';
 import { isPlatformBrowser } from '@angular/common';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { BlockHeaderComponent } from '../components/block-header/block-header.component';
+import { PostCardComponent } from 'src/app/shared/components/post-card/post-card.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { OwlPreventClickDirective } from 'src/app/shared/directives/owl-prevent-click.directive';
 
 @Component({
     selector: 'app-block-posts',
     templateUrl: './block-posts.component.html',
-    styleUrls: ['./block-posts.component.scss']
+    styleUrls: ['./block-posts.component.scss'],
+    standalone: true,
+    imports:[CommonModule, FormsModule, BlockHeaderComponent, PostCardComponent, CarouselModule, OwlPreventClickDirective]
 })
 export class BlockPostsComponent implements AfterViewInit {
     @Input() header = '';

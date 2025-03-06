@@ -8,7 +8,8 @@ import { takeUntil } from 'rxjs/operators';
 @Component({
     selector: 'app-quickview',
     templateUrl: './quickview.component.html',
-    styleUrls: ['./quickview.component.scss']
+    styleUrls: ['./quickview.component.scss'],
+    standalone: true
 })
 export class QuickviewComponent implements AfterViewInit, OnDestroy {
     private destroy$: Subject<void> = new Subject();

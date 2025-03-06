@@ -21,7 +21,8 @@ export class FakeSlidesDirective implements OnInit, OnChanges, OnDestroy {
     ) { }
 
     ngOnInit(): void {
-        this.resizeHandler = this.eventManager.addGlobalEventListener('window', 'resize', () => this.calc()) as () => void;
+        this.resizeHandler = () => this.calc();
+        window.addEventListener('resize', this.resizeHandler);
         this.calc();
     }
 
@@ -65,9 +66,13 @@ export class FakeSlidesDirective implements OnInit, OnChanges, OnDestroy {
         this.calc();
     }
 
+    // ngOnDestroy(): void {
+    //     if (this.resizeHandler) {
+    //         this.resizeHandler();
+    //     }
+    // }
+
     ngOnDestroy(): void {
-        if (this.resizeHandler) {
-            this.resizeHandler();
-        }
+        window.removeEventListener('resize', this.resizeHandler);
     }
 }

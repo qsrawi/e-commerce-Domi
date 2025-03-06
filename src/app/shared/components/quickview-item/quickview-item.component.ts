@@ -7,7 +7,8 @@ import { QuickviewitemService } from '../../services/quickviewitem.service';
 @Component({
   selector: 'app-quickview-item',
   templateUrl: './quickview-item.component.html',
-  styleUrls: ['./quickview-item.component.scss']
+  styleUrls: ['./quickview-item.component.scss'],
+  standalone: true
 })
 export class QuickviewItemComponent implements  AfterViewInit, OnDestroy {
 

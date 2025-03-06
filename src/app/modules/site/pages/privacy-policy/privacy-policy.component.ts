@@ -1,10 +1,14 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { PageHeaderComponent } from 'src/app/shared/components/page-header/page-header.component';
 import { StoreService } from 'src/app/shared/services/store.service';
 
 @Component({
   selector: 'app-privacy-policy',
   templateUrl: './privacy-policy.component.html',
-  styleUrls: ['./privacy-policy.component.scss']
+  styleUrls: ['./privacy-policy.component.scss'],
+  standalone: true,
+  imports:[PageHeaderComponent, CommonModule]
 })
 export class PrivacyPolicyComponent{
   basictemrs:string='';

@@ -1,16 +1,20 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SocialAuthService } from 'angularx-social-login';
 import { ToastrService } from 'ngx-toastr';
 import { Subject } from 'rxjs';
 import { AuthService } from 'src/app/shared/api/auth.service';
 import { RootService } from 'src/app/shared/services/root.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-page-profile',
     templateUrl: './page-profile.component.html',
-    styleUrls: ['./page-profile.component.sass']
+    styleUrls: ['./page-profile.component.sass'],
+    standalone: true,
+    imports:[CommonModule, FormsModule, ReactiveFormsModule]
 })
 export class PageProfileComponent implements OnInit, OnDestroy {
     destroy$: Subject<void> = new Subject<void>();

@@ -25,7 +25,8 @@ export type MobileHeaderVisibility = 'hidden' | 'shown';
 @Component({
     selector: 'app-mobile-header',
     templateUrl: './mobile-header.component.html',
-    styleUrls: ['./mobile-header.component.scss']
+    styleUrls: ['./mobile-header.component.scss'],
+    standalone: true
 })
 export class MobileHeaderComponent implements OnDestroy, AfterViewInit {
     @Input() stickyMode: MobileHeaderMode | false = false;

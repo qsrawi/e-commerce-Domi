@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PageHeaderComponent } from 'src/app/shared/components/page-header/page-header.component';
 import { CustomerServices, CustomerServicesinit } from 'src/app/shared/Models/CustomerServices';
 import { DirectionService } from 'src/app/shared/services/direction.service';
 import { StoreService } from 'src/app/shared/services/store.service';
@@ -6,7 +7,9 @@ import { StoreService } from 'src/app/shared/services/store.service';
 @Component({
     selector: 'app-faq',
     templateUrl: './page-faq.component.html',
-    styleUrls: ['./page-faq.component.scss']
+    styleUrls: ['./page-faq.component.scss'],
+    standalone: true,
+    imports: [PageHeaderComponent]
 })
 export class PageFaqComponent {
     basictemrs:string='';

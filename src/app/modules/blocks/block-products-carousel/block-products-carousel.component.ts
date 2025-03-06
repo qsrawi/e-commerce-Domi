@@ -14,11 +14,19 @@ import { Product } from '../../../shared/interfaces/product';
 import { BlockHeaderGroup } from '../../../shared/interfaces/block-header-group';
 import { DirectionService } from '../../../shared/services/direction.service';
 import { isPlatformBrowser } from '@angular/common';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { OwlPreventClickDirective } from 'src/app/shared/directives/owl-prevent-click.directive';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { ProductCardComponent } from 'src/app/shared/components/product-card/product-card.component';
+import { BlockHeaderComponent } from '../components/block-header/block-header.component';
 
 @Component({
     selector: 'app-block-products-carousel',
     templateUrl: './block-products-carousel.component.html',
-    styleUrls: ['./block-products-carousel.component.scss']
+    styleUrls: ['./block-products-carousel.component.scss'],
+    standalone: true,
+    imports:[CommonModule, FormsModule, OwlPreventClickDirective, CarouselModule, ProductCardComponent, BlockHeaderComponent]
 })
 export class BlockProductsCarouselComponent implements OnChanges, AfterViewInit {
     @Input() header = '';

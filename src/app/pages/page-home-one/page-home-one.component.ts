@@ -7,6 +7,19 @@ import { Product } from '../../shared/interfaces/product';
 import { Category } from '../../shared/interfaces/category';
 import { BlockHeaderGroup } from '../../shared/interfaces/block-header-group';
 import { takeUntil, tap } from 'rxjs/operators';
+import { IconComponent } from 'src/app/shared/components/icon/icon.component';
+import { ItemCardComponent } from 'src/app/shared/components/item-card/item-card.component';
+import { BlockSlideshowComponent } from 'src/app/modules/blocks/block-slideshow/block-slideshow.component';
+import { CommonModule } from '@angular/common';
+import { BlockFeaturesComponent } from 'src/app/modules/blocks/block-features/block-features.component';
+import { BlockProductsCarouselComponent } from 'src/app/modules/blocks/block-products-carousel/block-products-carousel.component';
+import { BlockBannerComponent } from 'src/app/modules/blocks/block-banner/block-banner.component';
+import { BlockProductsComponent } from 'src/app/modules/blocks/block-products/block-products.component';
+import { BlockCategoriesComponent } from 'src/app/modules/blocks/block-categories/block-categories.component';
+import { BlockPostsComponent } from 'src/app/modules/blocks/block-posts/block-posts.component';
+import { BlockBrandsComponent } from 'src/app/modules/blocks/block-brands/block-brands.component';
+import { BlockProductColumnsItemComponent } from 'src/app/modules/blocks/block-product-columns/block-product-columns-item/block-product-columns-item.component';
+import { BlockProductColumnsComponent } from 'src/app/modules/blocks/block-product-columns/block-product-columns.component';
 
 interface ProductsCarouselGroup extends BlockHeaderGroup {
     products$: Observable<Product[]>;
@@ -22,7 +35,21 @@ interface ProductsCarouselData {
 @Component({
     selector: 'app-home',
     templateUrl: './page-home-one.component.html',
-    styleUrls: ['./page-home-one.component.scss']
+    styleUrls: ['./page-home-one.component.scss'],
+    standalone: true,
+    imports: [
+        BlockSlideshowComponent,
+        CommonModule,
+        BlockFeaturesComponent,
+        BlockProductsCarouselComponent,
+        BlockBannerComponent,
+        BlockProductsComponent,
+        BlockCategoriesComponent,
+        BlockPostsComponent,
+        BlockBrandsComponent,
+        BlockProductColumnsComponent,
+        BlockProductColumnsItemComponent
+    ]
 })
 export class PageHomeOneComponent implements OnInit, OnDestroy {
     destroy$: Subject<void> = new Subject<void>();

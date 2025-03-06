@@ -5,7 +5,8 @@ import { RootService } from '../../services/root.service';
 @Component({
     selector: 'app-post-card',
     templateUrl: './post-card.component.html',
-    styleUrls: ['./post-card.component.scss']
+    styleUrls: ['./post-card.component.scss'],
+    standalone: true
 })
 export class PostCardComponent {
     @Input() post!: Post;

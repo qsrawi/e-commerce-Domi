@@ -3,11 +3,15 @@ import { Router } from '@angular/router';
 import * as e from 'express';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/shared/api/auth.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-forgotpassword',
   templateUrl: './forgotpassword.component.html',
-  styleUrls: ['./forgotpassword.component.scss']
+  styleUrls: ['./forgotpassword.component.scss'],
+  standalone: true,
+  imports:[CommonModule, FormsModule]
 })
 export class ForgotpasswordComponent implements OnInit {
   emailaddress: string = '';

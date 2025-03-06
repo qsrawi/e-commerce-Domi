@@ -4,6 +4,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
     selector: 'app-icon',
     templateUrl: './icon.component.html',
     styleUrls: ['./icon.component.scss'],
+    standalone: true,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class IconComponent {
